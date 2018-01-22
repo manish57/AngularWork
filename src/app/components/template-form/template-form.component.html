@@ -1,0 +1,79 @@
+<form #product="ngForm" (ngSubmit)="submit(product)">
+
+  <div class="form-group">
+    <label for="productCode">Product Code</label>
+    <input type="text" id="productCode" class="form-control" ngModel name="productCode" #productCode="ngModel" appInputFormat [Format]="'uppercase'"
+      minlength="5" required />
+    <div class="alert alert-danger" *ngIf="productCode.touched && !productCode.valid">
+      <div *ngIf="productCode.errors.required">
+        Product Code is required.
+      </div>
+      <div *ngIf="productCode.errors.minlength">
+        Product Code should be minimum {{ productCode.errors.minlength.requiredLength }} characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input type="text" id="productName" class="form-control" ngModel name="productName" #productName="ngModel" minlength="3" required/>
+    <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">
+      <div *ngIf="productName.errors.required">
+        Product Name is required.
+      </div>
+      <div *ngIf="productName.errors.minlength">
+        Product Name should be minimum {{ productName.errors.minlength.requiredLength }} characters.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="categories">Product Categories</label>
+    <select class="form-control" id="categories" ngModel name="categories" required>
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="productPrice">Product Price</label>
+     <input type="number" id="productPrice" class="form-control" ngModel name="productPrice" #productPrice="ngModel" required />
+
+    <div class="alert alert-danger" *ngIf="productPrice.touched && productPrice.value < 0">
+      Product Price cannot be Negative.
+    </div>
+
+
+     <div class="alert alert-danger" *ngIf="productPrice.touched && productPrice.value == 0">
+        Product Price cannot be Zero.
+    </div>
+
+    <div class="alert alert-danger" *ngIf="productPrice.touched && !productPrice.valid">
+      <div *ngIf="productPrice.errors.required">
+        Product Price is required.
+      </div>   
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Product Description</label>
+    <textarea ngModel name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input ngModel type="checkbox" name="isDiscounted"> Product has discount
+    </label>
+  </div>
+  <button class="btn btn-primary" [disabled]="!product.valid">Submit</button>
+</form>
+
+<hr>
+
+<div class="container">
+  <h2><strong>Product Information</strong></h2>
+  <h3>Code - {{product.value.productCode | uppercase}}</h3>
+  <h3>Name - {{product.value.productName}}</h3>
+  <h3>Category - {{product.value.categories}}</h3>
+  <h3>Price - {{product.value.productPrice | currency}}</h3>
+  <h3>Description - {{product.value.description}}</h3>
+  <h3>Discount Given - {{product.value.isDiscounted}}</h3>
+</div>

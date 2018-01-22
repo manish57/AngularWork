@@ -1,0 +1,32 @@
+<form (submit)="showAnswer(myRadio)">
+    <div class="form-group">
+        <label><h2><strong>Which of the following is correct about TypeScript?</strong></h2></label><br>
+        
+        <div class="radio">
+            <label><input type="radio" [(ngModel)]="myRadio" name="Radio" value="1">
+                Angular is based on TypeScript
+            </label>
+        </div><br>
+
+        <div class="radio">
+            <label><input type="radio" [(ngModel)]="myRadio" name="Radio" value="2">
+                This is a superset of JavaScript
+            </label>
+        </div><br>
+
+        <div class="radio">
+            <label><input type="radio" [(ngModel)]="myRadio" name="myRadio" value="3">
+                TypeScript is maintained by MicroSoft
+            </label>
+        </div><br>
+
+        <div class="radio">
+            <label><input type="radio" [(ngModel)]="myRadio" name="myRadio" value="4">
+                All of the above
+            </label>
+        </div><br>
+
+        <app-solution></app-solution>
+
+    </div>
+</form>

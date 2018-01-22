@@ -1,0 +1,12 @@
+<form class="form">
+    <div class="form-group">
+        <label>Enter First Value</label>
+        <input type="text" class="form-control" [(ngModel)]="numb" name="numb">
+    </div>
+
+    <div class="well well-sm">
+        <h2>
+            <strong>{{ numb | numberToWords}}</strong>
+        </h2>
+    </div>
+</form>

@@ -1,0 +1,5 @@
+<div style="margin-left:38%;">
+<span *ngFor="let range of ranges; let index=index">
+  <i class="glyphicon" (click)="update(index + 1)" [ngClass]="index < rate ? 'glyphicon-star' : 'glyphicon-star-empty'"></i>
+</span>
+</div>

@@ -1,0 +1,25 @@
+<span 
+  class="glyphicon"
+  [class.glyphicon-star]="active"
+  [class.glyphicon-star-empty]="!active"
+  (click)="onClick()"
+></span>
+
+<form [formGroup]="form">
+  <star-rating-comp
+    [starType]="'svg'" 
+    formControlName="myRating" 
+    [size]="'large'"
+    [speed]="'slow'"
+    [labelText]="'Angular-Star-Rating!'"
+    [labelPosition]="'top'"
+  ></star-rating-comp>
+  <h1 style="margin-left:50%;"><strong>{{ form.value.myRating }}</strong></h1>
+</form>
+
+<app-rating [(rate)]="rate" (updateRate)="RecievedParameters($event)"></app-rating>
+<h1 style="margin-left:50%;"><strong>{{ rate }}</strong></h1>
+
+
+
+

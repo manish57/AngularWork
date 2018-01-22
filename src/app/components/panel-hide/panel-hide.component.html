@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading"  [ngStyle]="{'background-color':getColor1()}">
+      <h3 class="panel-title">Lorem Ipsum
+        <span 
+        class="glyphicon"
+        [class.glyphicon-star-empty]="value1"
+        [class.glyphicon-star]="!value1"
+        (click)="onClick1()"        
+        ></span>
+        <span 
+        class="glyphicon pull-right"
+        [class.glyphicon-resize-small]="active"
+        [class.glyphicon-resize-full]="!active"
+        (click)="onClick()"
+      ></span>
+      </h3>
+    </div>
+
+    <div class="panel-body" *ngIf="active" [ngStyle]="{'background-color':getColor2()}">
+        <span 
+        class="glyphicon pull-right"
+        [class.glyphicon-star-empty]="value2"
+        [class.glyphicon-star]="!value2"
+        (click)="onClick2()"
+        ></span>
+        <h2>What is Lorem Ipsum?</h2><br>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+
+    <div class="panel-footer" *ngIf="active" [ngStyle]="{'background-color':getColor3()}">
+        <span 
+        class="glyphicon pull-right"
+        [class.glyphicon-star-empty]="value3"
+        [class.glyphicon-star]="!value3"
+        (click)="onClick3()"
+        ></span>
+        <p>&copy; 2018 Lorem Ipsum</p>
+    </div>
+</div>

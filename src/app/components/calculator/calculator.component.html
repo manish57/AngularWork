@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title"><strong>Calculator</strong></h1>
+  </div>
+
+  <div class="panel-body">          
+    <form class="form">
+      <div class="form-group">
+          <label>Enter First Value</label>
+          <input type="text" class="form-control" [(ngModel)]="first" name="first">
+      </div>
+      <div class="form-group">
+          <label>Enter Second Value</label>
+          <input type="text" class="form-control" [(ngModel)]="second" name="second">
+      </div>
+    </form>
+
+    <div class="container">
+      <div class="row">
+        <button type="button" class="btn btn-primary" (click)=add()>Addition</button>
+        <button type="button" class="btn btn-primary" (click)=sub()>Substraction</button>
+        <button type="button" class="btn btn-primary" (click)=mul()>Multiplication</button>
+        <button type="button" class="btn btn-primary" (click)=div()>Division</button>
+        <button type="button" class="btn btn-danger" (click)=reset()>Reset</button>
+      </div>
+    </div><br>
+
+    
+    <div class="well well-sm">
+      <h2>Result : <strong>{{result}}</strong></h2>
+    </div> 
+       
+  </div>
+</div>
